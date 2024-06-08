@@ -1,0 +1,83 @@
+---
+const { data } = Astro.props;
+---
+
+<div class="sidebar nav-sidebar">
+    <ul class="nav">
+        {data?.map((item, index) => (
+            <li class={`nav-item ${item?.sub?.length ? 'has-sub' : ''}`}>
+                <a href={item.url} class={`nav-link ${item.active ? 'active' : ''}`}>{item.name}</a>
+                {item?.sub?.length > 0 && (
+                    <ul class="nav-sub-menu" style={` ${item.active ? 'display: block' : ''}`}>
+                        {item?.sub?.map((child, index) => (
+                            <li class="nav-item">
+                                <a href={child.url} class={`nav-link ${child.active ? 'active' : ''}`}>{child.name}</a>
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </li>
+        ))}
+        <!-- <li class="nav-item">
+            <a href="#" class="nav-link active">Getting Set Up</a>
+        </li>
+        <li class="nav-item has-sub">
+            <a href="#" class="nav-link">Step-by-Step Implementation</a>
+            <ul class="nav-sub-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Step-by-Step Implementation</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Align with Senior Stakeholders on Project Outcomes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Understand the Current State</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Identify Possible Solutions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Identify Process Implications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Identify HR Implications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Develop an Implementation Plan</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Drive Stakeholder Engagement and Adoption</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Review Impact</a>
+                </li>
+                    
+            </ul>
+        </li>
+        <li class="nav-item has-sub">
+            <a href="#" class="nav-link">Recommended Solutions</a>
+            <ul class="nav-sub-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Recommended Solutions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Automated shower system</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Wearable bladder sensor</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Streamline documentation process</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Utilise enabling equipment / no lift policy</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Outsource housekeeping tasks</a>
+                </li>
+                    
+            </ul>
+        </li> -->
+    </ul>
+</div>
+ 

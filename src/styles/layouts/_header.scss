@@ -1,0 +1,136 @@
+#header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    .nav-menu {
+        @media (max-width: 1199px) {
+            display: none;
+        }
+        .nav {
+            > .nav-item {
+                padding: 36px 0;
+                .nav-link {
+                    transition: color 0.3s ease;
+                    &:hover {
+                        color: #F47D30;
+                    }
+                }
+            }
+            .nav-item {
+                &.has-sub {
+                    > .nav-link {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                      
+                        &::after {
+                            transition: transform 0.3s ease;
+                            display: block;
+                            margin-left: 6px;
+                            content: "\eb75";
+                            font-family: "iconsax" !important;
+                        }
+                    }
+                    &:hover {
+                        > .nav-link {
+                            color: #F47D30;
+                            &::after {
+                                transform: rotate(-180deg);
+                            }
+                        }
+                        > .nav-sub-menu {
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+                > .nav-sub-menu {
+                    visibility: hidden;
+                    opacity: 0;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: #F0F0F0;
+                    padding: 20px 15px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: opacity 0.3s ease, visibility 0.3s ease;
+                    z-index: 2;
+                    > .nav-item {
+                        padding: 0 20px;
+                        &:first-child {
+                            padding-left: 0;
+                        }
+                        &:last-child {
+                            padding-right: 0;
+                        }
+                        > .nav-link {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .hammer-menu {
+        font-size: 24px;
+        cursor: pointer;
+        @media (min-width: 1200px) {
+            display: none;
+        }
+    }
+    .search-button {
+        cursor: pointer;
+        font-size: 24px;
+        color: #212529;
+        margin-left: 24px;
+        transition: color 0.3s ease;
+        &:hover,
+        &.is-open {
+            color: #F47D30;
+        }
+    }
+    .search-form-header {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background-color: #F0F0F0;
+        padding: 20px 0;
+        display: none;
+        .search-form-header-inner {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            form {
+                display: flex;
+                align-items: center;
+                input[type="text"] {
+                    border: none;
+                    outline: none;
+                    background-color: #Fff;
+                    border-radius: 8px;
+                    padding: 10px 15px;
+                    width: 100%;
+                    font-size: 14px;
+                    height: 42px;
+                    color: #212529;
+                    &::placeholder {
+                        color: #212529;
+                    }
+                }
+                button[type="submit"] {
+                    outline: none;
+                    cursor: pointer;
+                    margin-left: 12px;
+                    height: 42px;
+                    max-height: 42px;
+                    border: none;
+                    min-height: 42px;
+                }
+            }
+        }
+    }
+}

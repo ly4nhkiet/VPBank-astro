@@ -1,0 +1,56 @@
+.card-number-list {
+    .number {
+        font-size: 16px;
+    }
+    .thumbnail {
+        border-radius: 100px;
+        border: 1px solid #F0F0F0;
+        background: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 3px 6px 0px rgba(33, 37, 41, 0.10);
+    }
+    .number-02 {
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px dashed #9DA201;
+        background: #FDFFBB;
+        position: relative;
+        &:after {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+        .number {
+            color: #9DA201;
+            font-size: 16px;
+            font-weight: 500;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+
+        }
+    }
+}
+
+.number-list-content {
+    .number-list-item {
+        font-size: 16px;
+        margin-bottom: 40px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .number {
+            color: #212529;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: 0.08px;
+            margin: 0 0 8px;
+        }
+        p:not(.number) {
+            margin: 0;
+        }
+    }
+}

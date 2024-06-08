@@ -1,0 +1,36 @@
+.site-footer {
+    color: #fff;
+    // margin-top: 112px;
+    .footer-title {
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 120%; /* 19.2px */
+        letter-spacing: 0.08px;
+        opacity: 1;
+        text-transform: capitalize;
+        margin: 0 0 24px;
+    }
+    .footer-nav {
+       .nav {
+            li {
+                color: rgba(255, 255, 255, 0.80);
+                margin-bottom: 12px;
+            }
+       }
+    }
+    .footer-address {
+        .text-icon {
+            display: flex;
+            line-height: 1.2;
+            color: rgba(255, 255, 255, 0.80);
+            margin: 0 0 24px;
+            .iconsax {
+                font-size: 16px;
+                margin-right: 12px;
+                color: #F47D30;
+                line-height: 1;
+            }
+        }
+    }
+}

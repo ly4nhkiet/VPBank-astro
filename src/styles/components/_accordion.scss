@@ -1,0 +1,41 @@
+.accordion {
+    border-bottom: 1.5px solid #F0F0F0;
+    &__title {
+        color: #212529;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 120%; /* 24px */
+        letter-spacing: 0.1px;
+        padding-right: 10px;
+        display: flex;
+        align-items: center;
+    }
+    &__avatar {
+        margin-right: 16px;
+    }
+    &__icon {
+        margin-left: auto;
+        font-size: 24px;
+      
+    }
+    &__header {
+        padding: 24px;
+        display: flex;
+        cursor: pointer;
+        .minus {
+            display: none;
+        }
+        &.is-open {
+            .minus {
+                display: block;
+            }
+            .add {
+                display: none;
+            }
+        }
+    }
+    &__body {
+        padding: 0 24px 24px;
+        display: none;
+    }
+}

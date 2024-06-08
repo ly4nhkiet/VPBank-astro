@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="game">
+   <div class="vp-game">
+        <div class="step-1 step">
+            <div class="intro">
+                <img src="/images/intro.png" alt="">
+                <a href="#" class="next-step btn-playnow" target="2">
+                    <img src="/images/btn.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="step-2 step" style="display: none;">
+            <form action="">
+                <div class="form-group">
+                    <label for="name">Họ và tên</label>
+                    <input type="text" class="field" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="tel">Số điện thoại</label>
+                    <input type="tel" class="field" id="telephone">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="field" id="email">
+                </div>
+                <div class="note">
+                    <ul>
+                        <li>
+                            <p>Khách hàng nhanh tay chạm trúng logo sản phẩm của VPBank ( ShopQR, Tap2Phone, Flex Card, VPBank NEO) và không được chạm vào hình tiền mặt. </p>
+                        </li>
+                        <li>
+                            <p>Trong 30s khách hàng chạm được 20 lần sản phẩm logo sản phẩm của VPBank sẽ chiến thắng và nhận được một phần quà của VPBank</p>
+                        </li>
+                        <li>
+                            <p>Nếu chạm trúng hình tiền mặt bạn sẽ bị thua game</p>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" class="btn-playnow mx-auto" target="2">
+                    <img src="/images/btn.png" alt="">
+                </a>
+            </form>
+        </div>
+        <div class="step-3 step" style="display: none">
+            <!-- <span class="playgame">play</span> -->
+            <div class="game" id="gameArea" style="position:absolute;height:100%;width:100%;">
+                <div class="game-control">
+                    <div class="counter" id= "counter">00:00</div>
+                    <div class="score" data-score="0">
+                        <img src="/images/0.png" alt="">
+                    </div>
+                </div>
+            </div>
+            
+        
+        </div>
+        <div class="step-4 step absolute top-0 left-0 w-full h-full" style="display: none;">
+             <div class="winner" style="display: none;">
+                <img src="/images/win.png" alt="">
+                <div id="result"></div>
+             </div>
+             <div class="loser" style="display: none;">
+                <img src="/images/lose.png" alt="">
+             </div>
+        </div>
+        <div class="loading-page" id="loading">
+            <div class="loader"></div>
+        </div>
+   </div>
+</Layout>

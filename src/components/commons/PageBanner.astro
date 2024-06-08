@@ -1,0 +1,18 @@
+---
+
+const { data } = Astro.props;
+---
+
+<section class="page-banner flex items-end pb-10">
+    <div class="container">
+        <div class="breadcrumb flex flex-wrap md:gap-4 gap-2 mb-10">
+            {data.breadCrumb.map((item) => (
+                item.current
+                  ? <span>{item.text}</span>
+                  : <a href={item.link}>{item.text}</a>
+              ))}
+        </div>
+        <h1 class="page-banner__title mb-0 text-white md:text-5xl text-3xl">{ data.title }</h1>
+    </div>
+</section>
+ 

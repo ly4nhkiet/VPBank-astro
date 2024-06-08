@@ -1,0 +1,113 @@
+.task-list {
+    .task-heading,
+    .task-item {
+        padding: 16px 24px;
+        text-align: center;
+        border-radius: 8px;
+    }
+    .task-heading {
+        background-color: #212529;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+        @media (max-width: 600px) {
+            font-size: 16px;
+        }
+    }
+    .task-item {
+        color: #212529;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        @media (max-width: 600px) {
+            font-size: 14px;
+        }
+        &:not(.warning):not(.error) {
+            border: 0.8px solid #B3BBC2;
+            background: #F1F3F6;
+            &.dashed {
+                border-style: dashed;
+                border-width: 2px;
+            }
+        }
+        &.error {
+            border: 0.8px solid #F47D30;
+            background: #FFEDE6;
+        }
+        &.warning {
+            border: 0.8px solid #9DA201;
+            background: #FDFFBB;
+        }
+        &.dashed {
+            border-style: dashed;
+            border-width: 2px;
+        }
+    }
+    &[data-icon="true"] {
+        .task-item {
+            &.warning {
+               
+                &:before {
+                    content: '';
+                    background-image: url('/images/danger.png');
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+}
+
+.legend-task-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    gap: 8px;
+    .legend-label {
+        display: flex;
+        flex-wrap: wrap;
+        
+        align-items: center;
+        p {
+            font-size: 16px;
+            margin: 0;
+        }
+        .label {
+            color: #666E76;
+        }
+        .item {
+            margin-left: 8px;
+            display: flex;
+            align-items: center;
+            color: #212529;
+            font-weight: 500;
+            .icon {
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background: #F1F3F6;
+                border: 1px solid #B3BBC2;
+                margin-right: 4px;
+                &.error {
+                    background: #FFEDE6;
+                    border: 1px solid #F47D30;
+                }
+                &.warning {
+                    background: #FDFFBB;
+                    border: 1px solid #9DA201;
+                }
+               
+            }
+        }
+    }
+    .additional-task {
+        margin-left: auto;
+        border-radius: 8px;
+        border: 1.5px dashed #212529;
+        padding: 8px 12px;
+        color: #212529;
+    }
+}

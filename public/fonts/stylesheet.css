@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'SVN-Gilroy XBold';
+    src: url('SVN-GilroyXBold.woff2') format('woff2'),
+        url('SVN-GilroyXBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SVN-Gilroy';
+    src: url('SVN-Gilroy.woff2') format('woff2'),
+        url('SVN-Gilroy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-Black.woff2') format('woff2'),
+        url('Poppins-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+

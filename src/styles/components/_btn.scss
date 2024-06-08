@@ -1,0 +1,47 @@
+.btn {
+    height: 46px;
+    padding: 0 24px 0 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    @media (max-width: 600px) {
+        font-size: 12px !important;
+    }
+    .iconsax {
+        font-size: 20px;
+    }
+    &.btn-primary {
+        background: #F47D30;
+        color: #fff;
+        &:hover {
+            background: #F0F0F0;
+            color: #212529;
+        }
+    }
+    &.btn-secondary {
+        background: #F0F0F0;
+        color: #212529;
+        &:hover {
+            background: #F47D30;
+            color: #fff;
+        }
+    }
+    &.btn-label {
+        min-height: 54px;
+        padding: 16px 24px;
+        border-radius: 8px;
+        background-color: #212529;
+        width: 100%;
+        color: #fff;
+        display: flex;
+        transition: none;
+        &:hover {
+            background-color: #212529;
+            color: #fff;
+        }
+    }
+}

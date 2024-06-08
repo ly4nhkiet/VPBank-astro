@@ -1,0 +1,53 @@
+.nav-sidebar {
+    .nav {
+        > .nav-item {
+            border-bottom: 0.8px solid #5C5C5C;
+            &.has-sub {
+                > .nav-link {
+                    display: flex;
+                    &:after {
+                        transition: transform 0.3s ease;
+                        display: block;
+                        margin-left: auto;
+                        content: '\eb75';
+                        font-family: 'iconsax' !important;
+                    }
+                }
+            }
+            &.is-open {
+                > .nav-link {
+                    &:after {
+                       transform: rotate(-180deg);
+                    }
+                }
+            }
+        }
+        &-link {
+            padding: 16px;
+            color: #212529;
+            font-size: 16px;
+            display: block;
+            font-weight: 400;
+            font-family: 'Lato', sans-serif;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+            &:hover,
+            &.active {
+                color: #F47D30;
+            }
+        }
+        .nav-sub-menu {
+            display: none;
+            .nav-item {
+                &:first-child {
+                    .nav-link {
+                        padding-top: 6px;
+                    }
+                }
+            }
+            .nav-link {
+                padding: 14px;
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.breadcrumb {
+   > * {
+        font-size: 14px;
+        color: #fff;
+        &:after {
+            content: '/';
+            margin-left: 16px;
+        }
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+   }
+}
