@@ -3,7 +3,8 @@ let step = 1,
     items = 0,
     runGame,
     tickTimeout,
-    customerId;
+    customerId,
+    gift = 0;
 const URLAPI = 'https://d2.beetech.one',
       API = '/shbmoney/index.php/api-data/';
 const vh = () => {
@@ -49,15 +50,15 @@ const getImg = (number) => {
 }
 function getRandomNumber() {
   let random = Math.random();
-  if (random < 0.3) {
+  if (random < 0.5) {
       return 1;
-  } else if (random < 0.4) {
+  } else if (random < 0.6) {
       return 2;
-  } else if (random < 0.55) {
-      return 3;
   } else if (random < 0.7) {
+      return 3;
+  } else if (random < 0.8) {
       return 4;
-  } else if (random < 0.85) {
+  } else if (random < 0.9) {
       return 5;
   } else {
       return 6;
@@ -81,7 +82,7 @@ function dropBox(){
   $(".game").append(thisBox);
   setTimeout(function(){
     thisBox.addClass("move");
-  }, random(0, 1000) );
+  }, random(0, 500) );
   thisBox.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",
               function(event) {
     $(this).remove();
@@ -92,6 +93,28 @@ function dropBox(){
 
 
 $(document).on('click', '.box', function(){
+  let boxOffset = $(this).offset();
+  let docWidth = $(document).width();
+  let docHeight = $(document).height();
+
+  let leftPercent = (boxOffset.left / docWidth) * 100;
+  let topPercent = (boxOffset.top / docHeight) * 100;
+
+  let point = $('<div class="point"><img src="/images/point.png" alt=""/></div>');
+  point.css({
+    'position': 'absolute',
+    'left': `${leftPercent}%`,
+    'top': `${topPercent}%`,
+    'width': '23%',
+  });
+
+  $('#gameArea').append(point);
+  setTimeout(function(){
+    point.fadeOut(function() {
+      $(this).remove();
+    });
+  }, 600);
+ 
   if($(this).hasClass('box-1')) {
     gameOver(false);
     return false; 
@@ -154,9 +177,10 @@ const postApi = (type) => {
     dataType: 'json',
     success: function(response) {
       console.log(response)
+      loading(false);
       if(type === 'register') {
-        loading(false);
         customerId = response.customer_id;
+        gift = response.qua;
         if(customerId === 0) {
           new Fancybox(
             [
@@ -172,6 +196,9 @@ const postApi = (type) => {
         $('.step-3').fadeIn();
         startGame();
       } else {
+        $('#result').html(`
+          <img src="/images/gift-${gift + 1}.png" alt="">
+        `)
         $('.step-4 .winner').show();
       }
     }
@@ -194,26 +221,42 @@ const gameOver = (winner) => {
 const startGame = () => {
   runGame = setInterval(function(){
     dropBox();
-  }, 750);
+  }, 500);
   countdown();
 }
 
 const submitForm = () => {
-  $('form').submit(function(e) {
-    e.preventDefault();
-    if($('#name').val() === '' || $('#telephone').val() === '' || $('#email').val() === '') {
-      alert('Vui lòng nhập đầy đủ thông tin');
-      return false;
+  $("form").validate({
+    rules: {
+        name: {
+            required: true
+        },
+        telephone: {
+            required: true,
+            digits: true,
+            rangelength: [10, 11]
+        },
+        email: {
+            required: true,
+            email: true
+        }
+    },
+    messages: {
+        name: {
+            required: "Vui lòng nhập tên"
+        },
+        telephone: {
+            required: "Vui lòng nhập số điện thoại",
+            digits: "Vui lòng nhập đúng số điện thoại",
+        },
+        email: {
+            required: "Vui lòng nhập email",
+            email: "Vui lòng nhập đúng định dạng email"
+        }
+    },
+    submitHandler: function(form) {
+        postApi('register');
     }
-    postApi('register');
-  });
-  $('form .btn-playnow').click(function(e) {
-    e.preventDefault();
-    if($('#name').val() === '' || $('#telephone').val() === '' || $('#email').val() === '') {
-      alert('Vui lòng nhập đầy đủ thông tin');
-      return false;
-    }
-    postApi('register');
   });
 }
 const nextStep = () => {

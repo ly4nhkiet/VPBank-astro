@@ -16,15 +16,21 @@ import Layout from '../layouts/Layout.astro';
             <form action="">
                 <div class="form-group">
                     <label for="name">Họ và tên</label>
-                    <input type="text" class="field" id="name">
+                    <div class="form-control">
+                        <input type="text" class="field" id="name" name="name">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="tel">Số điện thoại</label>
-                    <input type="tel" class="field" id="telephone">
+                    <div class="form-control">
+                        <input type="tel" class="field" id="telephone" name="telephone">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="field" id="email">
+                    <div class="form-control">
+                        <input type="email" class="field" id="email" name="email">
+                    </div>
                 </div>
                 <div class="note">
                     <ul>
@@ -39,7 +45,7 @@ import Layout from '../layouts/Layout.astro';
                         </li>
                     </ul>
                 </div>
-                <a href="#" class="btn-playnow mx-auto" target="2">
+                <button type="submit" class="btn-playnow mx-auto" target="2">
                     <img src="/images/btn.png" alt="">
                 </a>
             </form>
@@ -57,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
             
         
         </div>
-        <div class="step-4 step absolute top-0 left-0 w-full h-full" style="display: none;">
+        <div class="step-4 step absolute top-0 left-0 w-full h-full" style="display: none">
              <div class="winner" style="display: none;">
                 <img src="/images/win.png" alt="">
                 <div id="result"></div>
