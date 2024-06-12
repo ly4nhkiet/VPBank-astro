@@ -4,7 +4,7 @@ let step = 1,
     runGame,
     tickTimeout,
     customerId;
-const URLAPI = 'http://d2.beetech.one',
+const URLAPI = 'https://d2.beetech.one',
       API = '/shbmoney/index.php/api-data/';
 const vh = () => {
     let vh = window.innerHeight * 0.01;
